@@ -39,9 +39,9 @@ func (g GenericIO) OpenTable(config *Config) (*File, error) {
 		return nil, WrapError(err)
 	}
 	// Check if the fileversion flag is expected, expand validFileVersion if needed
-	if err := ValidateFileVersion(file.header.FileType, config.Untested); err != nil {
-		return nil, WrapError(err)
-	}
+	// if err := ValidateFileVersion(file.header.FileType, config.Untested); err != nil {
+	// 	return nil, WrapError(err)
+	// }
 	columns, nullFlag, err := file.ReadColumns()
 	if err != nil {
 		return nil, WrapError(err)
