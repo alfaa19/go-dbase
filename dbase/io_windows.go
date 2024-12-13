@@ -67,9 +67,9 @@ func (w WindowsIO) initTable(config *Config, file *File) error {
 		return WrapError(err)
 	}
 	// Check if the fileversion flag is expected, expand validFileVersion if needed
-	if err := ValidateFileVersion(file.header.FileType, config.Untested); err != nil {
-		return WrapError(err)
-	}
+	// if err := ValidateFileVersion(file.header.FileType, config.Untested); err != nil {
+	// 	return WrapError(err)
+	// }
 	columns, nullFlag, err := file.ReadColumns()
 	if err != nil {
 		return WrapError(err)

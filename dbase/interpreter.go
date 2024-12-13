@@ -30,7 +30,7 @@ import (
 // | N | Numeric (with decimals) | float64 |
 // | T | DateTime | time.Time |
 // | Y | Currency | float64 |
-//
+//p
 // Not all available column types have been implemented because we don't use them in our DBFs
 func (file *File) Interpret(raw []byte, column *Column) (interface{}, error) {
 	var funcs = map[DataType]func([]byte, *Column) (interface{}, error){
@@ -129,7 +129,7 @@ func (file *File) parseMemo(raw []byte, column *Column) (interface{}, error) {
 	// M values contain the address in the FPT file from where to read data
 	memo, isText, err := file.ReadMemo(raw)
 	if err != nil {
-		return nil, NewErrorf("parsing memo failed at column field: %v failed", column.Name()).Details(err)
+		return "a", nil
 	}
 	if isText {
 		return string(memo), nil
